@@ -1,0 +1,14 @@
+create user 'www'@'%' identified by 'www';
+
+use test;
+
+create table pets (
+    id varchar(50) not null,//not null表示不为空
+    name varchar(100) not null,
+    gender bool not null,
+    birth varchar(10) not null,
+    createdAt bigint not null,
+    updatedAt bigint not null,
+    version bigint not null,
+    primary key (id) //primary key 设置表的主键
+) engine=innodb;

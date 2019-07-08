@@ -1,0 +1,23 @@
+{
+    "name": "sequelize_example",
+    "version": "1.0.0",
+    "main": "app.js",
+    "author": "wh",
+    "scripts": {
+        "start": "node app.js"
+    },
+    "license": "apache-2.0",
+    "repository": {
+        "type": "git",
+        "url": "http://github.com/onesome/sequelize.git"
+    },
+    "description": "sequelize的例子",
+    "keywords": [
+        "mysql2",
+        "sequelize"
+    ],
+    "dependencies": {
+        "mysql2": "^1.6.5",
+        "sequelize": "^5.9.4"
+     }
+}
