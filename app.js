@@ -33,6 +33,7 @@ var Pet = sequelize.define('pet', {//第一个参数 默认表名 pet，  第二
     //添加数据
     var now = Date.now();
 
+    ////promise的方式
     // Pet.create({
     //     id: 'g-' + now,
     //     name: 'Gaffey',
@@ -47,6 +48,7 @@ var Pet = sequelize.define('pet', {//第一个参数 默认表名 pet，  第二
     //     console.log('failed: ' + err);
     // });
 
+    //await 方式
     (async () => {
         var dog = await Pet.create({
             id: 'd-' + now,
@@ -59,6 +61,35 @@ var Pet = sequelize.define('pet', {//第一个参数 默认表名 pet，  第二
         });
         console.log('created: ' + JSON.stringify(dog));
     })();
+
+//查询数据库 await的写法
+(async () => { 
+    var pets = await Pet.findAll({
+        where: {
+            name: 'Odie'
+        }
+    });
+    console.log(`find ${pets.length} pets:`);
+    for (let p of pets) { 
+        console.log(JSON.stringify(p));
+    }
+})();
+
+//更新数据库
+(async () => { 
+    var p = await queryFromSomewhere();
+    p.gender = true;
+    p.updatedAt = Date.now();
+    p.version++;
+    await p.save();
+})();
+
+//删除数据
+(async () => { 
+    var p = await queryFromSomewhere();
+    await p.destroy();
+})();
+
 
 /* 操作数据库 end */ 
 
